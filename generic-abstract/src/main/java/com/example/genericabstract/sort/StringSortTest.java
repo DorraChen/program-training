@@ -46,4 +46,7 @@ public class StringSortTest {
         });
         return result;
     }
+    /**
+     * 思考, 怎么样可以做到传入的可以是数组也可以是list进行排序, 看search模块
+     */
 }
