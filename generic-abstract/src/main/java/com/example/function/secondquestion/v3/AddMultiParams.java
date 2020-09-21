@@ -14,8 +14,18 @@ public class AddMultiParams {
 //            compose = x -> y -> z -> ;
 
     public static Function<Integer, Function<Integer, Integer>> add = x -> y -> x + y;
-    public static Function<Integer, Function<Integer, Function<Integer, Integer>>> addParams
-            = x->y->z->add.apply(add.apply(x).apply(y)).apply(z);
+    public static Function<Integer, Function<Integer, Function<Integer, Integer>>> add1
+            = x -> y ->z -> add.apply(x).apply(add.apply(y).apply(z));
+
+
+
+    /*public static BiFunction<BiFunction, Integer, Integer> addParam
+            = (f, x) -> (x == 0) ? 1 : x + (Integer) f.apply(f,x-1);
+
+    public static Function<Integer, Function<Integer, Integer>> addMultiParams =
+            x -> y -> addParam.apply(addParam, x);*/
+
+
 
 
     /**
@@ -24,7 +34,7 @@ public class AddMultiParams {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println(addParams.apply(1).apply(2).apply(3));
+        System.out.println(add1.apply(1).apply(2));
     }
 
 }
