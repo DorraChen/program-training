@@ -35,6 +35,11 @@ public class TheCompanyProcess {
         return s.substring(0, 1).toUpperCase() + s.substring(1, s.length());
     }
 
+    /**
+     * 测试一下
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         List<String> listOfNames = Arrays.asList("this", "is", "the", "first", "question");
         System.out.println(cleanNames(listOfNames));
