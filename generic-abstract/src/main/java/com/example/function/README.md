@@ -26,3 +26,44 @@
 使用lambda表达式写一个递归的斐波那契函数
 
 注：斐波那契数列，即兔子繁殖问题，1、1、2、3、5、8、13、21、34......
+
+
+
+=======================================================================================
+
+解析:
+
+第一题:
+
+实际上就是结合函数式编程改写代码, 遍历集合将每个元素的首字母大写,并用逗号拼接.
+
+(其实优化前的代码没有考虑异常情况, 如果result的length为0会抛出异常, 如{"a", "b", "c", "d"}, 改成lambda之后不会抛出异常) 优化前后详见代码.
+
+问: 还能再优化吗?
+
+
+
+第二题:
+
+参考一下js是如何优化的:
+
+```js
+// 柯里化
+function curry(fn) {
+    if(fn.length<=1) return fn
+    const generator = (...args) => {
+        return fn.length === args.length 
+            ? fn(...args) : (...args2) => {return generator(...args,...args2)}
+    }
+    return generator
+}
+let add = (a,b,c,d)=>a+b+c+d
+const curriedAdd = curry(add)
+let result = curriedAdd(1)(2)(3)(4)
+console.log(result)
+```
+
+虽然不是很了解js, 但是这段代码一看就能明白是什么含义. 这里就是将多参函数优化成了单参函数.即将add(1,2,3,4)优化成了add(1)(2)(3)(4). 在js中, 这个叫做柯里化.
+
+Java中也存在这种思想, 
+
