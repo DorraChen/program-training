@@ -11,6 +11,7 @@
     <modules>
         <module>generic-abstract</module>
         <module>algorithm-training</module>
+        <module>tools</module>
     </modules>
 
     <build>
