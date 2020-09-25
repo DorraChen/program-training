@@ -2,5 +2,5 @@
 场景:地址服务需要我返回全国所有城市及其中文拼音首字母大写并按照此排序, 
 但是公司的地址库里面存的只有中文名称, 所以需要写个工具类将中文转成拼音
 如图:
-![image](https://github.com/DorraChen/program-training/blob/master/tools/src/main/java/com/example/getfirstletter/address.png)
+![image](./address.png)
 
