@@ -1,4 +1,4 @@
-package com.example;
+package com.example.getfirstletter;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
@@ -16,6 +16,9 @@ import java.util.List;
  * @data 2020/9/25 9:28
  * @description 获取中文词组第一个字符的大写拼音首字母, 如 地址:D, 重庆:C
  * 如果需要添加多音词组, 请在 DUOYIN_CIZU 和 DUOYIN_PINYIN 中相应添加.
+ *
+ * 四个中这个是最终修改版
+ *
  */
 public class GetFirstLetterUtil {
     /**
@@ -27,10 +30,10 @@ public class GetFirstLetterUtil {
      */
     private static final String[] DUOYIN_PINYIN = new String[]{"CHONG"};
 
-    private static final char a = 'a';
-    private static final char z = 'z';
-    private static final char aA = 'A';
-    private static final char zZ = 'Z';
+    private static final char CHAR_A = 'a';
+    private static final char CHAR_Z = 'z';
+    private static final char CHAR_AA = 'A';
+    private static final char CHAR_ZZ = 'Z';
 
     /**
      * 拼音简拼输出
@@ -39,6 +42,9 @@ public class GetFirstLetterUtil {
      * @return String 返回第一个字的拼音大写首字母
      */
     public static String getFirstLetterCapital(String chinese) {
+        if (StringUtils.isBlank(chinese)) {
+            return "";
+        }
         return getFirstLetter(getFirstLetterPinyin(chinese));
     }
 
@@ -52,7 +58,7 @@ public class GetFirstLetterUtil {
         if (StringUtils.isNotBlank(string)) {
             return String.valueOf(string.charAt(0));
         }
-        return string;
+        return "";
     }
 
     /**
@@ -63,32 +69,32 @@ public class GetFirstLetterUtil {
      */
     private static String getFirstLetterPinyin(String chinese) {
         char[] chars = chinese.toCharArray();
-        if (chinese != null && !chinese.trim().equalsIgnoreCase("")) {
-            String polyphone = polyphone(chinese);
-            if (polyphone != null) {
-                return polyphone;
-            }
-            char[] srcChar = chinese.toCharArray();
-            String[] temp = new String[1];
-            char c = srcChar[0];
-
-            // 是中文或者a-z或者A-Z转换拼音
-            if (matchChineseCharacter(c)) {
-                try {
-                    temp = PinyinHelper.toHanyuPinyinStringArray(chars[0], getDefaultOutputFormat());
-                } catch (BadHanyuPinyinOutputFormatCombination e) {
-                    e.printStackTrace();
-                }
-            } else if (c >= a && c <= z) {
-                temp = new String[]{String.valueOf((char) (c - 32))};
-            } else if (c >= aA && c <= zZ) {
-                temp = new String[]{String.valueOf(srcChar[0])};
-            } else {
-                temp = new String[]{""};
-            }
-            return temp[0];
+        if (chinese == null || chinese.trim().equalsIgnoreCase("")) {
+            return "";
         }
-        return "";
+        String polyphone = polyphone(chinese);
+        if (polyphone != null) {
+            return polyphone;
+        }
+        char[] srcChar = chinese.toCharArray();
+        String[] temp = new String[1];
+        char c = srcChar[0];
+
+        // 是中文或者a-z或者A-Z转换拼音
+        if (matchChineseCharacter(c)) {
+            try {
+                temp = PinyinHelper.toHanyuPinyinStringArray(chars[0], getDefaultOutputFormat());
+            } catch (BadHanyuPinyinOutputFormatCombination e) {
+                e.printStackTrace();
+            }
+        } else if (c >= CHAR_A && c <= CHAR_Z) {
+            temp = new String[]{String.valueOf((char) (c - 32))};
+        } else if (c >= CHAR_AA && c <= CHAR_ZZ) {
+            temp = new String[]{String.valueOf(srcChar[0])};
+        } else {
+            temp = new String[]{""};
+        }
+        return temp[0];
     }
 
     /**

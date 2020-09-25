@@ -1,4 +1,4 @@
-package com.example;
+package com.example.getfirstletter;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
