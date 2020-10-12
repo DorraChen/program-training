@@ -1,4 +1,4 @@
-package stringtest.regularexpression;
+package performancetune.stringtest.regularexpression;
 
 import org.junit.Test;
 
