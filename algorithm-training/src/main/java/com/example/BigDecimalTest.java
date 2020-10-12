@@ -19,8 +19,10 @@ public class BigDecimalTest {
         BigDecimal zOrigin4 = new BigDecimal("1999");
 
         Long zIntegral1 = zOrigin1.divide(mOrigin, 32, RoundingMode.HALF_UP)
+                // 一开始这里保留4位, 计算之后精度不准
                 .multiply(new BigDecimal(mIntegral))
                 .setScale(0, RoundingMode.HALF_UP).longValue();
+        // 这里注意一个细节: https://blog.csdn.net/m0_37772518/article/details/108381342
         BigDecimal zAmount1 = zOrigin1.subtract(new BigDecimal(zIntegral1 / 100.0)
                 .setScale(2, RoundingMode.HALF_UP))
                 .setScale(2, RoundingMode.HALF_UP);
