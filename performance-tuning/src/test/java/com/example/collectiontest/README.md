@@ -1,6 +1,5 @@
-## ArrayList还是LinkedList？
 ![List集合类的接口和类的实现关系](./List集合类的接口和类的实现关系.png)
-### ArrayList
+### 1.ArrayList
 ```java
 public class ArrayList<E> extends AbstractList<E>
         implements List<E>, RandomAccess, Cloneable, java.io.Serializable {}
@@ -50,10 +49,13 @@ ArrayList 是基于数组实现，由于 ArrayList 的数组是基于动态扩�
 * 删除元素: ArrayList 在每一次有效的删除元素操作之后，都要进行数组的重组，并且**删除的元素位置越靠前，数组重组的开销就越大**.
 * 遍历元素: 由于 ArrayList 是基于数组实现的，所以在获取元素的时候是非常快捷的.
 
-### LinkedList
+### 2.LinkedList
 ```java
 public class LinkedList<E>
     extends AbstractSequentialList<E>
     implements List<E>, Deque<E>, Cloneable, java.io.Serializable {}
 ```
+LinkedList 是**基于链表的数据结构实现的**.
 
+### 3.HashMap
+HashMap 是**基于哈希表的数据结构实现的**.
