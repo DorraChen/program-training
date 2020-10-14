@@ -1,4 +1,4 @@
-package string.regularexpression;
+package com.example.stringtest.regularexpression;
 
 import org.junit.Test;
 
