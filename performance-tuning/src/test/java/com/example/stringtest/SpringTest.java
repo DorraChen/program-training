@@ -1,4 +1,4 @@
-package performancetune.stringtest;
+package string;
 
 import org.junit.Test;
 

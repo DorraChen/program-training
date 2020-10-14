@@ -12,6 +12,7 @@
         <module>generic-abstract</module>
         <module>algorithm-training</module>
         <module>tools</module>
+        <module>performance-tuning</module>
     </modules>
 
     <build>
