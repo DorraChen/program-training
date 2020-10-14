@@ -3,6 +3,9 @@ package com.example.collectiontest;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * @author admin
+ */
 public class ArrayListTest {
 
 	/**
