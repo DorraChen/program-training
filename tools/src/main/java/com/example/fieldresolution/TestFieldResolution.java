@@ -15,6 +15,7 @@ import com.google.gson.Gson;
  */
 public class TestFieldResolution {
     public static void main(String[] args) {
+        // =======不满足驼峰的转换============
         ModelOne modelOne = new ModelOne();
         Gson gson = new Gson();
         String modelOneStr = gson.toJson(modelOne);
@@ -25,6 +26,7 @@ public class TestFieldResolution {
         System.out.println(modelThree);
 
 
+        // =======测试一下满足驼峰的转换是否正常============
 
         Model model = new Model();
         String modelStr = gson.toJson(model);
