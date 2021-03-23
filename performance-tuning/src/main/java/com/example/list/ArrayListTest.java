@@ -1,4 +1,4 @@
-package com.example.collectiontest;
+package com.example.list;
 
 import java.util.ArrayList;
 import java.util.Iterator;

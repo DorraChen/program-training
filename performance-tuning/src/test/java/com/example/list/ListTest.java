@@ -1,4 +1,4 @@
-package com.example.collectiontest;
+package com.example.list;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @data 2020/10/13 15:02
  * @description
  */
-public class CollectionTest {
+public class ListTest {
     /**
      * 测试ArrayList和LinkedList性能
      */
@@ -46,7 +46,7 @@ public class CollectionTest {
 
     /**
      * ArrayList线程不安全
-     * @see CollectionTest#testCopyOnWriteArrayList()
+     * @see ListTest#testCopyOnWriteArrayList()
      */
     @Test
     public void testArrayList() {
