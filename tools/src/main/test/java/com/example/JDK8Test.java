@@ -61,8 +61,11 @@ public class JDK8Test {
         }};
         List<ParentOrder> parentOrders = new ArrayList<>(Arrays.asList(parentOrder1, parentOrder2, parentOrder3, parentOrder4));
 
-        List<ChildOrder> childOrders = parentOrders.stream().map(ParentOrder::getChildOrderList).flatMap(List::stream).collect(Collectors.toList());
-        List<String> productIds = childOrders.stream().map(ChildOrder::getProductId).collect(Collectors.toList());
+        List<String> productIds = parentOrders.stream().map(ParentOrder::getChildOrderList)
+                .flatMap(List::stream)
+                .map(ChildOrder::getProductId)
+                .distinct()
+                .collect(Collectors.toList());
         System.out.println(new Gson().toJson(productIds));
     }
 }
