@@ -8,6 +8,8 @@ import com.example.fieldresolution.model.ModelThree;
 import com.example.fieldresolution.model.ModelTwo;
 import com.google.gson.Gson;
 
+import java.util.Map;
+
 /**
  * @author clz
  * @data 2020/10/22 13:15
@@ -35,5 +37,8 @@ public class TestFieldResolution {
 
         ModelThree modelThree1 = JSONObject.parseObject(JSON.toJSONString(model), ModelThree.class);
         System.out.println(modelThree1);
+
+        Map<String, Object> beanToMap = SensorsBeanToMapUtils.beanToMap(model);
+        System.out.println("===============================");
     }
 }
