@@ -4,7 +4,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/9/23 13:59
  * @description 利用函数式编程实现阶乘
  */

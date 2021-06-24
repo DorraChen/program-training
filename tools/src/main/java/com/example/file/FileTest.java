@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/11/9 14:22
  * @description 计算文件的hash512(sha512就是hash512)签名
  */

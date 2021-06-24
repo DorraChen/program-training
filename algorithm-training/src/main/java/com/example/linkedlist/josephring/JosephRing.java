@@ -3,7 +3,7 @@ package com.example.linkedlist.josephring;
 import java.util.Scanner;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/11/10 14:21
  * @description 约瑟夫环
  */

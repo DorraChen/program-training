@@ -8,7 +8,7 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/9/24 11:42
  * @description 中文汉字转拼音
  */

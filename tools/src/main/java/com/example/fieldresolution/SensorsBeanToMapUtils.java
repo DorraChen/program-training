@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author clz
+ * @author Dorra
  * @date 2019/12/18 11:36
  * @description 字段很多, 但是前缀都一样.考虑直接将bean转map, 简化开发
  */

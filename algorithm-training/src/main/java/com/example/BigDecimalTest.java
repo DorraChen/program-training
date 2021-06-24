@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/9/29 17:22
  * @description 精度测试
  */

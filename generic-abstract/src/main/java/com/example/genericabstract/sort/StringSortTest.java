@@ -3,7 +3,7 @@ package com.example.genericabstract.sort;
 import java.util.*;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/7/7 17:37
  * @description
  * ---------------------

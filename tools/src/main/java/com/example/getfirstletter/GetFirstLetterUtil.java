@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/9/25 9:28
  * @description 获取中文词组第一个字符的大写拼音首字母, 如 地址:D, 重庆:C
  * 如果需要添加多音词组, 请在 DUOYIN_CIZU 和 DUOYIN_PINYIN 中相应添加.

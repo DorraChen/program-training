@@ -1,7 +1,7 @@
 package com.example.genericabstract.sort;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/7/7 9:50
  * @description 编程训练: 通用的与类型无关的泛型(类型抽象)
  */

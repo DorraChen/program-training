@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 /**
- * @author clz
+ * @author Dorra
  * @data 2020/10/22 11:34
  * @description
  */
