@@ -100,7 +100,7 @@ public class JsoupParseHtml {
     }
 
     /**
-     * 将图片文件上传至服务器, 并返回图片url(此例子将图片存至本地)
+     * 将图片文件上传至服务器, 并返回图片url(此例子只是将图片存至本地)
      *
      * @param multipartFile 文件
      * @return
