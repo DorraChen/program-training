@@ -1,5 +1,6 @@
-package com.example.jdk8.model;
+package com.example.model;
 
+import com.example.model.ChildOrder;
 import lombok.Data;
 
 import java.util.List;
