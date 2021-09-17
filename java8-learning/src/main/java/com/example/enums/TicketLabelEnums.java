@@ -15,7 +15,7 @@ public enum TicketLabelEnums {
     HAVE_INITIATED("1", "发起过"),
     REPEAT("2", "重复"),
     LARGE_AMOUNT("3", "重大"),
-    AGAIN("4", "反复"),
+    REPEATEDLY("4", "反复"),
     ;
     private String label;
     private String name;
