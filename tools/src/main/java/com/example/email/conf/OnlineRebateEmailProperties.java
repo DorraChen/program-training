@@ -1,36 +1,40 @@
-package com.example.email.config;
+package com.example.email.conf;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
  * @author dorra
- * @date 2021/12/28 15:17
+ * @date 2021/12/29 10:03
  * @description
  */
 @Component
 @ConfigurationProperties(prefix = "onlinerebate-email")
-public class OnlineRebateEmailConfig {
+public class OnlineRebateEmailProperties {
     /**
      * 是否开启邮件通知
      */
-    public boolean open;
+    public boolean open = true;
     /**
      * 发件人邮箱
      */
     public String senderAccount;
     /**
+     * 发件人名称
+     */
+    public String senderPersonal;
+    /**
      * 临时授权码-用户可随时关闭
      */
     public String senderToken;
     /**
-     * 发件人邮箱的smtp服务器地址
-     */
-    public String smtpHost;
-    /**
      * 收件人邮箱
      */
     public String receiverAccount;
+    /**
+     * 收件人名称
+     */
+    public String receiverPersonal;
 
     public boolean isOpen() {
         return open;
@@ -48,6 +52,14 @@ public class OnlineRebateEmailConfig {
         this.senderAccount = senderAccount;
     }
 
+    public String getSenderPersonal() {
+        return senderPersonal;
+    }
+
+    public void setSenderPersonal(String senderPersonal) {
+        this.senderPersonal = senderPersonal;
+    }
+
     public String getSenderToken() {
         return senderToken;
     }
@@ -56,19 +68,19 @@ public class OnlineRebateEmailConfig {
         this.senderToken = senderToken;
     }
 
-    public String getSmtpHost() {
-        return smtpHost;
-    }
-
-    public void setSmtpHost(String smtpHost) {
-        this.smtpHost = smtpHost;
-    }
-
     public String getReceiverAccount() {
         return receiverAccount;
     }
 
     public void setReceiverAccount(String receiverAccount) {
         this.receiverAccount = receiverAccount;
+    }
+
+    public String getReceiverPersonal() {
+        return receiverPersonal;
+    }
+
+    public void setReceiverPersonal(String receiverPersonal) {
+        this.receiverPersonal = receiverPersonal;
     }
 }
