@@ -14,7 +14,7 @@ import java.util.Properties;
 /**
  * @author dorra
  * @date 2021/12/28 15:34
- * @description
+ * @description 使用 POP3/SMTP 协议发送邮件
  */
 @Component
 public class EmailEventSmtpImpl implements EmailEvent {

@@ -30,8 +30,6 @@ public class EmailEventTest {
         sendMessageModel.setSubject("test");
         sendMessageModel.setContent("hahahah");
         sendMessageModel.setSentDate(new Date());
-//        EmailConfig emailConfig = EmailConfigFactory.buildEmailConfig(EmailConstants.EMAIL_CONFIG_ONLINEREBATE);
-//        EmailEvent emailEvent = EmailEventFactory.buildEmailEvent(EmailConstants.EMAIL_PROTOCOL_SMTP);
         emailEventSmtpImpl.sendEmail(onlineRebateEmailConfig, sendMessageModel);
     }
 }

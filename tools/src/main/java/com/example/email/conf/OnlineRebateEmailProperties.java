@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author dorra
  * @date 2021/12/29 10:03
- * @description
+ * @description 返利邮件模块配置
  */
 @Component
 @ConfigurationProperties(prefix = "onlinerebate-email")
