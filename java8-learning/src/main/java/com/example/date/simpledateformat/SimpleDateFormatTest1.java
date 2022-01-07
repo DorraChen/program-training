@@ -1,4 +1,4 @@
-package com.example.date;
+package com.example.date.simpledateformat;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -6,9 +6,9 @@ import java.util.Calendar;
 /**
  * @author dorra
  * @date 2022/1/6 17:52
- * @description TODO
+ * @description SimpleDateFormat格式化
  */
-public class SimpleDateFormatTest {
+public class SimpleDateFormatTest1 {
     public static void main(String[] args) {
         // 关于 SimpleDateFormat
         Calendar calendar2 = Calendar.getInstance();
@@ -27,6 +27,8 @@ public class SimpleDateFormatTest {
         firstDayOfWeek:1
         minimalDaysInFirstWeek:1
 
+        JDK 的文档中有说明, 小写的 y 为年,大写的 Y 为 week year.
+        https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
         SimpleDateFormat 的正确格式应该是 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
          */
