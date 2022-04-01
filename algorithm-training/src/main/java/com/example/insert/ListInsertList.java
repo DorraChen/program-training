@@ -14,42 +14,13 @@ import java.util.List;
  */
 @Slf4j
 public class ListInsertList {
-    private static List<String> initNumberList() {
-        List<String> number = new ArrayList<>();
-        number.add("1");
-        number.add("2");
-        number.add("3");
-        number.add("4");
-        number.add("5");
-        number.add("6");
-        number.add("7");
-        number.add("8");
-        number.add("9");
-        return number;
-    }
-
-    private static List<String> initLetterList() {
-        List<String> letter = new ArrayList<>();
-        letter.add("a");
-        letter.add("b");
-        letter.add("c");
-        letter.add("d");
-        letter.add("e");
-        letter.add("f");
-        letter.add("g");
-        letter.add("h");
-        letter.add("i");
-        letter.add("j");
-        letter.add("k");
-        return letter;
-    }
 
     public static void main(String[] args) {
         List<String> letter = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k");
         List<String> number = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
         List<String> combine = combine(letter, number);
         log.info("combine:{}", combine);
-        List<String> combineNew = combineNew(letter, number, 1, 5);
+        List<String> combineNew = combineNew(letter, number, 4, 2);
         log.info("combine:{}", combineNew);
     }
 
@@ -94,7 +65,7 @@ public class ListInsertList {
     }
 
     /**
-     * 浅拷贝
+     * 4+1
      *
      * @param letter
      * @param number
