@@ -67,13 +67,13 @@ public class Sort {
             /*return list.stream().sorted(Comparator.comparing(a -> getPriceBigDecimal(a.getPrice()),
                             Comparator.nullsLast(BigDecimal::compareTo)))
                     .collect(Collectors.toList());*/
-            return list.stream().sorted(Comparator.comparing(t -> t.getPrice() == null
-                                    ? null : new BigDecimal(t.getPrice()),
+            return list.stream().sorted(Comparator.comparing(t ->
+                                    Optional.ofNullable(t.getPrice()).map(BigDecimal::new).orElse(null),
                             Comparator.nullsFirst(BigDecimal::compareTo).reversed()))
                     .collect(Collectors.toList());
         }
-        return list.stream().sorted(Comparator.comparing(t -> t.getPrice() == null
-                                ? null : new BigDecimal(t.getPrice()),
+        return list.stream().sorted(Comparator.comparing(t ->
+                                Optional.ofNullable(t.getPrice()).map(BigDecimal::new).orElse(null),
                         Comparator.nullsLast(BigDecimal::compareTo)))
                 .collect(Collectors.toList());
     }

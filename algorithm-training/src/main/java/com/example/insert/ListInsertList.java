@@ -1,5 +1,6 @@
 package com.example.insert;
 
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;
 
@@ -20,8 +21,8 @@ public class ListInsertList {
         List<String> number = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
         List<String> combine = combine(letter, number);
         log.info("combine:{}", combine);
-        List<String> combineNew = combineNew(letter, number, 4, 2);
-        log.info("combine:{}", combineNew);
+        /*List<String> combineNew = combineNew(letter, number, 4, 2);
+        log.info("combine:{}", combineNew);*/
     }
 
     private static List<String> combineNew(List<String> letter, List<String> number, int n, int m) {
@@ -81,12 +82,12 @@ public class ListInsertList {
         // 深拷贝
         List<String> newLetter = new ArrayList<>(letter);
         List<String> newNumber = new ArrayList<>(number);
-        for (int i = 0; i < newLetter.size(); i++) {
+        List<String> combine = new ArrayList<>();
+        // "for" loop stop conditions should be invariant, for 循环的终止条件应该是不变的
+        // 此循环怕会出现死循环
+        /*for (int i = 0; i < newLetter.size(); i++) {
             i += 4;
-            if (CollectionUtils.isEmpty(newNumber)) {
-                break;
-            }
-            if (i >= newLetter.size()) {
+            if (CollectionUtils.isEmpty(newNumber) || i >= newLetter.size()) {
                 break;
             }
             newLetter.add(i, newNumber.get(0));
@@ -95,6 +96,18 @@ public class ListInsertList {
         if (!CollectionUtils.isEmpty(newNumber)) {
             newLetter.addAll(newNumber);
         }
-        return newLetter;
+        return newLetter;*/
+        List<List<String>> combineList = Lists.partition(newLetter, 4);
+        for (List<String> list : combineList) {
+            combine.addAll(list);
+            if (!CollectionUtils.isEmpty(newNumber)) {
+                combine.add(newNumber.get(0));
+                newNumber.remove(0);
+            }
+        }
+        if (!CollectionUtils.isEmpty(newNumber)) {
+            combine.addAll(newNumber);
+        }
+        return combine;
     }
 }
