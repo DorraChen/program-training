@@ -1,4 +1,4 @@
-package com.example;
+package com.example.stringformat;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
