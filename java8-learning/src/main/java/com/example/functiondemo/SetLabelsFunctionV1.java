@@ -1,6 +1,6 @@
 package com.example.functiondemo;
 
-import com.example.enums.TicketLabelEnums;
+import com.example.functiondemo.enums.TicketLabelEnums;
 import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;

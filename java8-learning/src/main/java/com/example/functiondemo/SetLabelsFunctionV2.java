@@ -1,6 +1,6 @@
 package com.example.functiondemo;
 
-import com.example.enums.TicketLabelEnums;
+import com.example.functiondemo.enums.TicketLabelEnums;
 import com.google.gson.Gson;
 import org.springframework.util.CollectionUtils;
 
