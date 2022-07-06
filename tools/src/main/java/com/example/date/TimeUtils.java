@@ -1,5 +1,8 @@
 package com.example.date;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -7,6 +10,7 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Optional;
 
 /**
  * @author dorra
@@ -17,6 +21,7 @@ public class TimeUtils {
 
 
     private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    private static final String DATE_FORMAT_1 = "yyyy-MM-dd";
 
 
     /**
@@ -167,5 +172,53 @@ public class TimeUtils {
         LocalDateTime endTimeDate = LocalDateTime.parse(endTime, df);
         Long countdowns = Duration.between(startTimeDate, endTimeDate).toMillis();
         return countdowns;
+    }
+
+    /**
+     * 返回指定月份的第一天
+     *
+     * @param dateStr 年月
+     * @param returnFormat 返回格式
+     * @return
+     * @throws ParseException
+     */
+    public static String getFirstDayOfGivenMonth(String dateStr, String returnFormat) throws ParseException {
+        if (StringUtils.isBlank(dateStr)) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_1);
+        Date date = sdf.parse(dateStr);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.add(Calendar.MONTH, 0);
+        returnFormat = Optional.ofNullable(returnFormat).orElse(DATE_FORMAT);
+        SimpleDateFormat returnSdf = new SimpleDateFormat(returnFormat);
+        return returnSdf.format(calendar.getTime());
+    }
+
+    /**
+     * 返回指定月份的最后一天
+     *
+     * @param dateStr 年月
+     * @param returnFormat 返回格式
+     * @return
+     * @throws ParseException
+     */
+    public static String getLastDayOfGivenMonth(String dateStr, String returnFormat) throws ParseException {
+        if (StringUtils.isBlank(dateStr)) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_1);
+        Date date = sdf.parse(dateStr);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        returnFormat = Optional.ofNullable(returnFormat).orElse(DATE_FORMAT);
+        SimpleDateFormat returnSdf = new SimpleDateFormat(returnFormat);
+        return returnSdf.format(calendar.getTime());
     }
 }
