@@ -221,4 +221,84 @@ public class TimeUtils {
         SimpleDateFormat returnSdf = new SimpleDateFormat(returnFormat);
         return returnSdf.format(calendar.getTime());
     }
+
+
+
+    /**
+     * 获取清算周期的-周期 上周时间 YYYY-MM-DD 00:00:00
+     * 今天为第一天
+     * <p>
+     * date为范围起点，推算上周时间
+     *
+     * @param date       以此时间推到开始时间
+     * @param targetWeek 根据清算规则 设置本周的第几天
+     * @param cycle 0表示配置的是本周结算,1表示配置的是下周结算
+     * @return Date
+     */
+    public static Date getClearLastWeekTime(Date date, Integer cycle, Integer targetWeek) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        // 本周上周
+        if (cycle != 0) {
+            calendar.add(Calendar.DATE, -7);
+        }
+        setWeekDay(calendar, targetWeek);
+        return calendar.getTime();
+    }
+
+    /**
+     * 设定目标日期周的 周几
+     *
+     * @param calendar    目标日期
+     * @param executeTime 周几
+     */
+    public static void setWeekDay(Calendar calendar, Integer executeTime) {
+        //当前是周几
+        int dayWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        //转成中国人的星期
+        int currentWeek = dayWeek == 1 ? 7 : dayWeek - 1;
+        //当前日期不为目标日期，才做修改
+        if (currentWeek != executeTime) {
+            calendar.add(Calendar.DATE, executeTime - currentWeek);
+        }
+    }
+
+    /**
+     * 获取今天的本周的星期几
+     *
+     * @return
+     */
+    public static Integer getDayOfWeek(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        //当前是周几
+        int dayWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        //转成中国人的星期习惯
+        int currentWeek = dayWeek == 1 ? 7 : dayWeek - 1;
+        return currentWeek;
+    }
+
+    /**
+     * 时间格式化成字符串
+     *
+     * @param time       时间字符串
+     * @return
+     */
+    public static String timeFormatToStr(Date time) {
+        if (time == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(time);
+    }
+
+    public static void main(String[] args) {
+        //星期几 1-7
+        Date targetDate = new Date();
+        // 0表示配置的是本周结算,1表示配置的是下周结算
+        Date startTime = getClearLastWeekTime(targetDate, 1, 1);
+        Date endTime = getClearLastWeekTime(targetDate, 1, 5);
+        System.out.println(timeFormatToStr(startTime));
+        System.out.println(timeFormatToStr(endTime));
+    }
 }
